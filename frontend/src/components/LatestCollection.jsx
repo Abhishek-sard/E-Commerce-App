@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useContext } from 'react'
 import { ShopContext } from '../context/ShopContext'
 import Title from './Title'
+import ProductItems from './ProductItems'
 
 const LatestCollection = () => {
 
@@ -26,7 +27,14 @@ const LatestCollection = () => {
                 Discover the latest trends in our collection and elevate your style with our new arrivals.
             </p>
         </div>
-      
+
+        {/**Rendering Products**/}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 gap-y-6">
+          {latestProducts.map((item, index) => (
+            <ProductItems key={index} id={item._id} image={item.image} name={item.name} price={item.price} />
+          ) )}
+        </div>
+
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { ShopContext } from '../context/ShopContext'
 import { Link } from 'react-router-dom';
 
@@ -17,6 +17,5 @@ const ProductItems = ({ id, image, title, price }) => {
 export default ProductItems
 
 
-// 1:34
 
 
