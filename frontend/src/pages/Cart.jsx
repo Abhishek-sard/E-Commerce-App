@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ShopContext } from '../context/ShopContext'
 import Title from '../components/Title' 
+import { assets } from '../assets/assets';
 const Cart = () => {
 
-  const { products, currency, cartItems } = useContext(ShopContext);
+  const { products, currency, cartItems, updateQuantity } = useContext(ShopContext);
 
   const [cartData, setCartData] = useState([]);
 
@@ -48,6 +49,7 @@ const Cart = () => {
                     min={1}
                     defaultValue={item.quantity}
                   />
+                  <img onClick={() => updateQuantity(item.id, item.size, 0)} className='w-4 mr-4 sm:w-5 cursor-pointer' src={assets.bin_icon} alt="" />
                 </div>
               </div>
             );
