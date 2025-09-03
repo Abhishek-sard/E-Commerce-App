@@ -11,6 +11,9 @@ const About = () => {
       </div>
       <div className="my-10 flex flex-col md:flex-row gap-16">
         <img className='w-full md:max-w-[450px]' src={assets.about_img} alt="" />
+        <div className="d-flex">
+
+        </div>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis veniam sit atque, qui nostrum saepe, earum aspernatur voluptas, accusantium in vitae eligendi est architecto amet ipsam mollitia at dolore sed.</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque odit laborum quasi vero voluptate expedita quod alias provident nam dolore, quaerat fugit rerum eligendi asperiores quam? Officia atque deserunt explicabo?</p>
         <b className="text-gray-800">Our Mission</b>
@@ -34,7 +37,7 @@ const About = () => {
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error asperiores veniam ipsa nobis ipsum excepturi accusantium ullam, officia rem quia totam iure suscipit expedita laudantium eligendi voluptates ut earum dolor.</p>
         </div>
       </div>
-      <NewsLetterBox/>
+      <NewsLetterBox />
 
     </div>
   )
