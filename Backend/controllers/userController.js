@@ -1,4 +1,4 @@
-import userModel from "../models/userModel";
+import userModel from "../models/userModel.js";
 import validator from "validator";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
@@ -9,7 +9,29 @@ const createToken = (id) => {
 }
 
 // Route for user login
-const loginUser = async (req, res) => {};
+const loginUser = async (req, res) => {
+  try{
+    const {email, password} = req.body;
+
+    const user = await userModel.findOne({email});
+    
+      if(!user){
+        return res.json({success:false, message:"User not found"});
+      }
+      const isMatch = await bcrypt.compare(password, user.password);
+      if(!isMatch){
+        return res.json({success:false, message:"Incorrect password"});
+      }
+      const token = createToken(user._id)
+      res.json({success:true, token});
+    }
+    else{
+      return res.json({success:false, message:"Please enter valid email and password"});
+    }catch(error){
+      console.log(error);
+      res.json({success:false, message:error.message})
+    }
+  };
 
 //Route for user register
 const registerUser = async (req, res) => {
